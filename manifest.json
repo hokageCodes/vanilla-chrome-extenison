@@ -1,29 +1,28 @@
 {
-    "manifest_version": 3,
-    "name": "HelpMeOut",
-    "description": "A Chrome Extension for Screen Recording and Sharing",
-    "permissions": [
-      "activeTab",
-      "desktopCapture",
-      "storage",
-      "audioCapture",
-      "videoCapture"
-    ],
-    "icons": {
-      "16": "images/helpLogo16.png",
-      "48": "images/helpLogo48.png",
-      "128": "images/helpLogo128.png"
-    },
-    "version": "1.0.1",
-    "action": {
-      "default_popup": "INDEX.html",
-      "default_title": "HelpMeOut"
-    },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["popup.js"]
-      }
-    ]
-  }
-  
+  "manifest_version": 3,
+  "name": "HelpMeOut",
+  "description": "A Chrome Extension for Screen Recording and Sharing",
+  "permissions": [
+    "activeTab",
+    "desktopCapture",
+    "storage",
+    "audioCapture",
+    "videoCapture"
+  ],
+  "icons": {
+    "16": "images/helpLogo16.png",
+    "48": "images/helpLogo48.png",
+    "128": "images/helpLogo128.png"
+  },
+  "version": "1.0.1",
+  "action": {
+    "default_popup": "INDEX.html",
+    "default_title": "HelpMeOut"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["popup.js"]
+    }
+  ]
+}

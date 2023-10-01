@@ -8,18 +8,49 @@ document.addEventListener("DOMContentLoaded", function () {
     const recordedVideo = document.getElementById("recorded-video");
     const downloadLink = document.getElementById("download-link");
     const videoSizeElement = document.getElementById("video-size");
-    const popup = document.querySelector(".popup");
+    const popupControls = document.getElementById("control-modal");
+    const recordTimer = document.getElementById("record-timer");
 
     let recording = false;
     let paused = false;
     let mediaStream = null;
     let mediaRecorder = null;
     let mediaChunks = [];
+    let startTime = 0;
+    let timerInterval;
+
+    function startTimer() {
+        startTime = Date.now();
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function stopTimer() {
+        clearInterval(timerInterval);
+    }
+
+    function updateTimer() {
+        const currentTime = Date.now();
+        const elapsedTime = new Date(currentTime - startTime);
+        const seconds = String(elapsedTime.getSeconds()).padStart(2, "0");
+        const minutes = String(elapsedTime.getMinutes()).padStart(2, "0");
+        recordTimer.textContent = `${minutes}:${seconds}`;
+    }
+    
+    function showControls() {
+        popupControls.style.display = "flex";
+        startTimer();
+    }
+
+    function hideControls() {
+        popupControls.style.display = "none";
+        stopTimer();
+    }
 
     startStopButton.addEventListener("click", () => {
         if (!recording) {
             if (cameraToggle.checked && audioToggle.checked) {
                 startRecording();
+                showControls();
             } else {
                 alert("Please enable both camera and audio to start recording.");
             }
@@ -40,11 +71,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     stopButton.addEventListener("click", () => {
         stopRecording();
+        hideControls();
     });
 
     deleteButton.addEventListener("click", () => {
-        // Delete recording logic (you can implement this functionality)
-        // ...
+        if (recordedVideo.src) {
+            URL.revokeObjectURL(recordedVideo.src);
+            recordedVideo.src = "";
+            downloadLink.style.display = "none";
+        }
+        hideControls();
     });
 
     async function startRecording() {
@@ -65,15 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
             };
             recorder.onstop = () => {
                 const recordedBlob = new Blob(mediaChunks, { type: 'video/webm' });
-                const videoSize = (recordedBlob.size / (1024 * 1024)).toFixed(2); // Convert to MB with two decimal places
+                const videoSize = (recordedBlob.size / (1024 * 1024)).toFixed(2);
                 const videoURL = URL.createObjectURL(recordedBlob);
-                console.log("Recording complete. Video URL:", videoURL);
 
                 recordedVideo.src = videoURL;
                 downloadLink.href = videoURL;
                 downloadLink.style.display = "block";
 
-                // Display the video size
                 videoSizeElement.textContent = `Video Size: ${videoSize} MB`;
 
                 mediaChunks = [];
@@ -114,4 +148,18 @@ document.addEventListener("DOMContentLoaded", function () {
             startStopButton.textContent = "Start Recording";
         }
     }
+
+    const controlModal = document.getElementById("control-modal");
+
+    // Show the modal when clicking the control button
+    popupControls.addEventListener("click", () => {
+        controlModal.style.display = "block";
+    });
+
+    // Hide the modal when clicking outside of it
+    window.addEventListener("click", (event) => {
+        if (event.target === controlModal) {
+            controlModal.style.display = "none";
+        }
+    });
 });

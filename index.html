@@ -58,31 +58,18 @@
         <div class="record-button">
             <button id="start-stop-button" class="start-button">Start Recording</button>
         </div>
-        <!-- <div class="popup-controls">
-            <button id="pause-button" class="control-button">Pause</button>
-            <button id="stop-button" class="control-button">Stop</button>
-            <button id="delete-button" class="control-button">Delete</button>
-        </div> -->
-        <div class="pip-popup" id="pip-popup">
-            <h1>Screen Recorder (PiP)</h1>
-            <div class="pip-video-container">
-                <video id="pip-recorded-video" controls></video>
-            </div>
-            <div class="pip-controls">
-                <div class="pip-recording-status">
-                    <span id="pip-recording-count">0:00</span>
-                </div>
-                <div class="pip-buttons">
-                    <button id="pip-pause-button" class="pip-button">Pause</button>
-                    <button id="pip-stop-button" class="pip-button">Stop</button>
-                    <button id="pip-delete-button" class="pip-button">Delete</button>
-                </div>
-            </div>
-        </div>
-        
+
         <video id="recorded-video" controls style="display: none;"></video>
         <div class="video-size" id="video-size"></div>
         <a id="download-link" style="display: none;" download="recorded-video.webm">Download Video</a>
+    </div>
+    <div class="modal" id="control-modal">
+        <div class="modal-content">
+            <span id="record-timer">00:00</span>
+            <button id="pause-button" class="control-button"><img src="./images/pause-icon.svg" alt="Pause"></button>
+            <button id="stop-button" class="control-button"><img src="./images/stop-icon.svg" alt="Stop"></button>
+            <button id="delete-button" class="control-button"><img src="./images/delete-icon.svg" alt="Delete"></button>
+        </div>
     </div>
     <script src="popup.js"></script>
 </body>
