@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>HelpMeOut</title>
+</head>
+<body>
+    <div class="popup">
+        <div class="header">
+            <div class="logo">
+                <img src="images/helpLogo.svg" alt="HelpMeOut Logo" class="logo-image">
+                <h1 class="title">HelpMeOut</h1>
+            </div>
+            <div class="header-icons">
+                <img src="images/setting.svg" alt="Settings" class="header-icon">
+                <img src="images/close.svg" alt="Close" class="header-icon">
+            </div>
+        </div>
+        <p class="description">This extension helps you record and share help videos with ease.</p>
+        <div class="options">
+            <div class="option">
+                <div class="option-icon">
+                    <img src="images/monitor.svg" alt="Full Screen" class="option-image">
+                </div>
+                <span class="option-text">Full Screen</span>
+            </div>
+            <div class="option">
+                <div class="option-icon">
+                    <img src="images/copy.svg" alt="Current Tab" class="option-image">
+                </div>
+                <span class="option-text">Current Tab</span>
+            </div>
+        </div>
+        <div class="settings">
+            <div class="setting">
+                <div class="setting-icon">
+                    <img src="images/video-camera.svg" alt="Camera" class="setting-image">
+                </div>
+                <span class="setting-text">Camera</span>
+                <label class="toggle">
+                    <input type="checkbox" name="camera-toggle" id="camera-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting">
+                <div class="setting-icon">
+                    <img src="images/microphone.svg" alt="Audio" class="setting-image">
+                </div>
+                <span class="setting-text">Audio</span>
+                <label class="toggle">
+                    <input type="checkbox" name="audio-toggle" id="audio-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="record-button">
+            <button id="start-stop-button" class="start-button">Start Recording</button>
+        </div>
+        <!-- <div class="popup-controls">
+            <button id="pause-button" class="control-button">Pause</button>
+            <button id="stop-button" class="control-button">Stop</button>
+            <button id="delete-button" class="control-button">Delete</button>
+        </div> -->
+        <div class="pip-popup" id="pip-popup">
+            <h1>Screen Recorder (PiP)</h1>
+            <div class="pip-video-container">
+                <video id="pip-recorded-video" controls></video>
+            </div>
+            <div class="pip-controls">
+                <div class="pip-recording-status">
+                    <span id="pip-recording-count">0:00</span>
+                </div>
+                <div class="pip-buttons">
+                    <button id="pip-pause-button" class="pip-button">Pause</button>
+                    <button id="pip-stop-button" class="pip-button">Stop</button>
+                    <button id="pip-delete-button" class="pip-button">Delete</button>
+                </div>
+            </div>
+        </div>
+        
+        <video id="recorded-video" controls style="display: none;"></video>
+        <div class="video-size" id="video-size"></div>
+        <a id="download-link" style="display: none;" download="recorded-video.webm">Download Video</a>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
