@@ -59,18 +59,17 @@
             <button id="start-stop-button" class="start-button">Start Recording</button>
         </div>
 
-        <video id="recorded-video" controls style="display: none;"></video>
-        <div class="video-size" id="video-size"></div>
-        <a id="download-link" style="display: none;" download="recorded-video.webm">Download Video</a>
     </div>
     <div class="modal" id="control-modal">
-        <div class="modal-content">
-            <span id="record-timer">00:00</span>
-            <button id="pause-button" class="control-button"><img src="./images/pause-icon.svg" alt="Pause"></button>
-            <button id="stop-button" class="control-button"><img src="./images/stop-icon.svg" alt="Stop"></button>
-            <button id="delete-button" class="control-button"><img src="./images/delete-icon.svg" alt="Delete"></button>
-        </div>
+        <video id="user-camera" autoplay muted class="camera-feed"></video>
+        <span id="record-timer">00:00</span>
+        <button id="pause-button" class="control-button"><img src="./images/pause-icon.svg" alt="Pause"></button>
+        <button id="stop-button" class="control-button"><img src="./images/stop-icon.svg" alt="Stop"></button>
+        <button id="delete-button" class="control-button"><img src="./images/delete-icon.svg" alt="Delete"></button>
     </div>
+    
+
+    
     <script src="popup.js"></script>
 </body>
 </html>

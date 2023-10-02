@@ -10,6 +10,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const videoSizeElement = document.getElementById("video-size");
     const popupControls = document.getElementById("control-modal");
     const recordTimer = document.getElementById("record-timer");
+    const userCamera = document.getElementById("user-camera");
+
+
+    async function startCameraFeed() {
+        try {
+            const cameraStream = await navigator.mediaDevices.getUserMedia({ video: true });
+            userCamera.srcObject = cameraStream;
+        } catch (error) {
+            console.error('Error accessing user camera:', error);
+        }
+    }
+
+    // Call the function to start the camera feed
+    startCameraFeed();
 
     let recording = false;
     let paused = false;
