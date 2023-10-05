@@ -1,75 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>HelpMeOut</title>
-</head>
-<body>
-    <div class="popup">
-        <div class="header">
-            <div class="logo">
-                <img src="images/helpLogo.svg" alt="HelpMeOut Logo" class="logo-image">
-                <h1 class="title">HelpMeOut</h1>
-            </div>
-            <div class="header-icons">
-                <img src="images/setting.svg" alt="Settings" class="header-icon">
-                <img src="images/close.svg" alt="Close" class="header-icon">
-            </div>
-        </div>
-        <p class="description">This extension helps you record and share help videos with ease.</p>
-        <div class="options">
-            <div class="option">
-                <div class="option-icon">
-                    <img src="images/monitor.svg" alt="Full Screen" class="option-image">
-                </div>
-                <span class="option-text">Full Screen</span>
-            </div>
-            <div class="option">
-                <div class="option-icon">
-                    <img src="images/copy.svg" alt="Current Tab" class="option-image">
-                </div>
-                <span class="option-text">Current Tab</span>
-            </div>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>HelpMeOut Video Recorder</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
         <div class="settings">
-            <div class="setting">
-                <div class="setting-icon">
-                    <img src="images/video-camera.svg" alt="Camera" class="setting-image">
-                </div>
-                <span class="setting-text">Camera</span>
-                <label class="toggle">
-                    <input type="checkbox" name="camera-toggle" id="camera-toggle">
-                    <span class="slider"></span>
-                </label>
-            </div>
-            <div class="setting">
-                <div class="setting-icon">
-                    <img src="images/microphone.svg" alt="Audio" class="setting-image">
-                </div>
-                <span class="setting-text">Audio</span>
-                <label class="toggle">
-                    <input type="checkbox" name="audio-toggle" id="audio-toggle">
-                    <span class="slider"></span>
-                </label>
-            </div>
+          <a href="https://polite-pegasus-cf4e5b.netlify.app/" target="_blank">
+            <img src="./images/logo.svg" alt="logo" />
+          </a>
+          <div class="set">
+            <img src="./images/setting-2.svg" alt="setting" />
+            <img src="./images/close-circle.svg" alt="close" />
+          </div>
         </div>
-        <div class="record-button">
-            <button id="start-stop-button" class="start-button">Start Recording</button>
+        <p>This extension helps you record and share help videos with ease.</p>
+      </div>
+      <div class="screen">
+        <div class="center">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.5865 2.66675H23.3998C28.1465 2.66675 29.3332 3.85341 29.3332 8.58675V17.0267C29.3332 21.7734 28.1465 22.9467 23.4132 22.9467H8.5865C3.85317 22.9601 2.6665 21.7734 2.6665 17.0401V8.58675C2.6665 3.85341 3.85317 2.66675 8.5865 2.66675Z"
+              stroke="#928FAB"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M16 22.96V29.3333"
+              stroke="#928FAB"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2.6665 17.3333H29.3332"
+              stroke="#928FAB"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M10 29.3333H22"
+              stroke="#928FAB"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h2>Full screen</h2>
         </div>
 
-    </div>
-    <div class="modal" id="control-modal">
-        <video id="user-camera" autoplay muted class="camera-feed"></video>
-        <span id="record-timer">00:00</span>
-        <button id="pause-button" class="control-button"><img src="./images/pause-icon.svg" alt="Pause"></button>
-        <button id="stop-button" class="control-button"><img src="./images/stop-icon.svg" alt="Stop"></button>
-        <button id="delete-button" class="control-button"><img src="./images/delete-icon.svg" alt="Delete"></button>
-    </div>
-    
+        <div class="center">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21.3332 17.2001V22.8001C21.3332 27.4667 19.4665 29.3334 14.7998 29.3334H9.19984C4.53317 29.3334 2.6665 27.4667 2.6665 22.8001V17.2001C2.6665 12.5334 4.53317 10.6667 9.19984 10.6667H14.7998C19.4665 10.6667 21.3332 12.5334 21.3332 17.2001Z"
+              stroke="#928FAB"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M29.3332 9.20008V14.8001C29.3332 19.4667 27.4665 21.3334 22.7998 21.3334H21.3332V17.2001C21.3332 12.5334 19.4665 10.6667 14.7998 10.6667H10.6665V9.20008C10.6665 4.53341 12.5332 2.66675 17.1998 2.66675H22.7998C27.4665 2.66675 29.3332 4.53341 29.3332 9.20008Z"
+              stroke="#928FAB"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h2>Tab</h2>
+        </div>
+      </div>
+      <div class="mic">
+        <div class="camera">
+          <div class="side">
+            <img src="./images/video-camera.svg" alt="video-camera" />
+            <h3>Camera</h3>
+          </div>
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="audio">
+          <div class="side">
+            <img src="./images/video-camera.svg" alt="video-camera" />
+            <h3>Audio</h3>
+          </div>
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
 
-    
-    <script src="popup.js"></script>
-</body>
+      <div class="button_cont">
+        <button id="start_video">Start Recording</button>
+      </div>
+
+      <div class="button_cont">
+        <button id="stop_video">Stop Recording</button>
+      </div>
+    </div>
+    <script src="./script/popup.js"></script>
+  </body>
 </html>
